@@ -1,0 +1,36 @@
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="cogniman_robot">
+
+    <xacro:include filename="$(find toggle_clamp)/urdf/toggle_clamp.xacro"/>
+    <xacro:clamp prefix="1"/>
+    <xacro:clamp prefix="2"/>
+    <xacro:include filename="$(find plateforme_description)/urdf/plateforme.xacro"/>
+    <xacro:include filename="$(find motoman_gp7_support)/urdf/gp7_macro.xacro" />
+	<xacro:motoman_gp7 prefix=""/>
+
+    <link name="world"/>
+    
+    <joint name="world_to_plateforme" type="fixed">
+        <origin xyz="1 0 0" rpy="0 0 0"/>
+        <parent link="world"/>
+        <child link="plateforme"/>
+    </joint>
+
+    <joint name="plateforme_to_robot" type="fixed">
+        <origin xyz="1 0 0" rpy="0 0 0"/>
+        <parent link="plateforme"/>
+        <child link="base_link"/>
+    </joint>
+    
+    <joint name="robot_to_clamp1" type="fixed">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <parent link="base_link"/>
+        <child link="clamp_1"/>
+    </joint>
+
+       <joint name="robot_to_clamp2" type="fixed">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <parent link="base_link"/>
+        <child link="clamp_2"/>
+    </joint>
+   
+</robot>

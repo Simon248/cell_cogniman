@@ -1,0 +1,15 @@
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+    <link name="plateforme">
+        <visual>
+            <geometry>
+                <mesh filename="package://plateforme_description/mesh/visual/plateform.stl"/>
+            </geometry>
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="package://plateforme_description/mesh/collision/plateform_collision.stl"/>
+            </geometry>
+        </collision>
+    </link>
+</robot>
