@@ -100,6 +100,22 @@ def generate_launch_description():
         output='screen'
     )
 
+    # Gz bridge
+    pkg_bringup_path = get_package_share_directory('bringup')
+    DeclareLaunchArgument(
+        'config_file_gz_bridge',
+        default_value=os.path.join(pkg_bringup_path, 'config','gz_bridge_config.yaml'),
+        description='Path to the configuration file'
+        )
+    
+    gz_bridge_node =  Node(
+        package='ros_gz_bridge',
+        executable='parameter_bridge',
+        name='ros_gz_bridge',
+        output='screen',
+        parameters=[LaunchConfiguration('config_file_gz_bridge')]
+        )
+
 
     return LaunchDescription([
         RSP_freq,

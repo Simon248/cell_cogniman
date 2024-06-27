@@ -1,0 +1,10 @@
+- gz_topic_name: /clock
+  gz_type_name: gz.msgs.Clock
+  ros_topic_name: /clock
+  ros_type_name: rosgraph_msgs/msg/Clock
+  direction: GZ_TO_ROS
+- gz_topic_name: /robot_description
+  gz_type_name: gz.msgs.StringMsg
+  ros_topic_name: /robot_description
+  ros_type_name: std_msgs/msg/String
+  direction: ROS_TO_GZ
