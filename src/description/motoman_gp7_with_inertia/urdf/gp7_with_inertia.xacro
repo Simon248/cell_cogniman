@@ -3,7 +3,7 @@
 
     <!-- Inclure les fichiers Xacro existants -->
     <xacro:include filename="$(find xacro_inertia)/urdf/inertia_table.xacro"/>
-    <xacro:include filename="$(find motoman_gp7_support)/urdf/gp7.xacro"/>
+    <xacro:include filename="$(find motoman_gp7_support)/urdf/gp7_macro.xacro"/>
 
 
     <!-- Définir une macro pour motoman_gp7 avec inerties, avec un préfixe comme paramètre -->

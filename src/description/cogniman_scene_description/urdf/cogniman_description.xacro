@@ -13,7 +13,9 @@
 
     <xacro:include filename="$(find plateforme_description)/urdf/plateforme.xacro"/>
     <xacro:include filename="$(find motoman_gp7_with_inertia)/urdf/gp7_with_inertia.xacro" />
-	<xacro:motoman_gp7_with_inertia prefix=""/>
+    <xacro:motoman_gp7_with_inertia prefix=""/>
+    <!-- <xacro:include filename="$(find motoman_gp7_support)/urdf/gp7_macro.xacro" />
+	<xacro:motoman_gp7 prefix=""/> -->
 
     <link name="world"/>
     
