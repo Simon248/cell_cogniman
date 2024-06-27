@@ -1,0 +1,66 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!-- Inclure les fichiers Xacro existants -->
+    <xacro:include filename="$(find xacro_inertia)/urdf/inertia_table.xacro"/>
+    <xacro:include filename="$(find motoman_gp7_support)/urdf/gp7.xacro"/>
+
+
+    <!-- Définir une macro pour motoman_gp7 avec inerties, avec un préfixe comme paramètre -->
+    <xacro:macro name="motoman_gp7_with_inertia" params="prefix">
+        
+        <!-- Utiliser la macro du robot motoman_gp7 avec le préfixe -->
+        <xacro:motoman_gp7 prefix="${prefix}"/>
+
+        <!-- Ajouter les inerties à chaque lien avec le préfixe -->
+        <link name="${prefix}base_link">
+            <inertial>
+                <xacro:cylinder_inertia m="8" r="0.095" h="0.15"/>
+            </inertial>
+        </link>
+
+        <link name="${prefix}link_1_s">
+            <inertial>
+                <xacro:cylinder_inertia m="5" r="0.2" h="1.0"/>
+            </inertial>
+        </link>
+
+        <link name="${prefix}link_2_l">
+            <inertial>
+                <xacro:box_inertia m="8" x="1.0" y="0.2" z="0.2"/>
+            </inertial>
+        </link>
+
+        <link name="${prefix}link_3_u">
+            <inertial>
+                <xacro:cylinder_inertia m="4" r="0.15" h="0.8"/>
+            </inertial>
+        </link>
+
+        <link name="${prefix}link_4_r">
+            <inertial>
+                <xacro:sphere_inertia m="3" r="0.1"/>
+            </inertial>
+        </link>
+
+        <link name="${prefix}link_5_b">
+            <inertial>
+                <xacro:box_inertia m="2" x="0.4" y="0.4" z="0.1"/>
+            </inertial>
+        </link>
+
+        <link name="${prefix}link_6_t">
+            <inertial>
+                <xacro:cylinder_inertia m="1" r="0.05" h="0.5"/>
+            </inertial>
+        </link>
+
+        <link name="${prefix}tool0">
+            <inertial>
+                <xacro:box_inertia m="1" x="0.1" y="0.1" z="0.1"/>
+            </inertial>
+        </link>
+
+    </xacro:macro>
+
+</robot>

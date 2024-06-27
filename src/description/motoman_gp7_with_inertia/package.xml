@@ -1,23 +1,19 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>cogniman_scene_description</name>
+  <name>motoman_gp7_with_inertia</name>
   <version>0.0.0</version>
   <description>TODO: Package description</description>
-  <maintainer email="simon.robert@irt-jules-verne.fr">srobert</maintainer>
-  <license>Apache-2.0</license>
+  <maintainer email="rsimoon@gmail.com.com">maretsu</maintainer>
+  <license>TODO: License declaration</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
 
-  <depend> toggle_clamp </depend>
-  <depend> plateforme_description </depend>
-  <depend> screw_gripper_description </depend>
-  <depend> profilo_description </depend>
-  <depend> positionning_tool </depend>
-  <depend> motoman_gp7_support </depend>
+    <depend> motoman_gp7_support </depend>
+    <depend> xacro_inertia </depend>
 
   <export>
     <build_type>ament_cmake</build_type>
