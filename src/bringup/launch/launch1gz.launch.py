@@ -95,12 +95,8 @@ def generate_launch_description():
     spawn_robot = Node(
         package='ros_gz_sim',
         executable='create',
-        parameters=[{
-                    'name': 'my_custom_model',
-                    'x': 0,
-                    'z': 0,
-                    'Y': 0,
-                    'topic': '/robot_description'}],
+        arguments=['-topic', '/robot_description',
+            '-entity', 'robot_description'],
         output='screen'
     )
 
