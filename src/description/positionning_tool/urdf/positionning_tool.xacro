@@ -1,11 +1,14 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
     <xacro:macro name="equerre" params="prefix">
 
+    <xacro:include filename="$(find xacro_materials)/urdf/materials.xacro"/>
+    
     <link name="equerre_${prefix}">
         <visual>
             <geometry>
                 <mesh filename="package://positionning_tool/mesh/visual/equerre.stl"/>
             </geometry>
+            <xacro:red/>
         </visual>
         <collision>
             <geometry>

@@ -1,0 +1,69 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find xacro_materials)/urdf/colors.xacro"/>
+
+  <!-- ===PERSO=== -->
+    <xacro:macro name="white">
+    <material name="">
+      <color rgba="${white}"/>
+    </material>
+  </xacro:macro>
+
+  <xacro:macro name="grey_light">
+    <material name="">
+      <color rgba="${grey_light}"/>
+    </material>
+  </xacro:macro>
+
+  <xacro:macro name="grey_steel">
+    <material name="">
+      <color rgba="${grey_steel}"/>
+    </material>
+  </xacro:macro>
+
+    <xacro:macro name="black">
+    <material name="">
+      <color rgba="${black}"/>
+    </material>
+  </xacro:macro>
+
+    <xacro:macro name="red">
+    <material name="">
+      <color rgba="${red}"/>
+    </material>
+  </xacro:macro>
+
+    <xacro:macro name="pastel_yellow">
+    <material name="">
+      <color rgba="${pastel_yellow}"/>
+    </material>
+  </xacro:macro>
+
+    <!-- ===FROM MOTOMAN=== -->
+
+  <xacro:macro name="material_yaskawa_blue">
+    <material name="">
+      <color rgba="${color_yaskawa_blue}"/>
+    </material>
+  </xacro:macro>
+
+  <xacro:macro name="material_yaskawa_white">
+    <material name="">
+      <color rgba="${color_yaskawa_white}"/>
+    </material>
+  </xacro:macro>
+
+  <!-- not an official colour, but used in some old xacro:macros -->
+  <xacro:macro name="material_yaskawa_yellow">
+    <material name="">
+      <color rgba="${color_yaskawa_yellow}"/>
+    </material>
+  </xacro:macro>
+
+  <!-- not an official colour, but used in some old xacro:macros -->
+  <xacro:macro name="material_yaskawa_silver">
+    <material name="">
+      <color rgba="${color_yaskawa_silver}"/>
+    </material>
+  </xacro:macro>
+</robot>

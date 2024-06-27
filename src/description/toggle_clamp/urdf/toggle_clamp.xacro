@@ -1,11 +1,14 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
     <xacro:macro name="clamp" params="prefix">
 
+    <xacro:include filename="$(find xacro_materials)/urdf/materials.xacro"/>
+
     <link name="clamp_${prefix}">
         <visual>
             <geometry>
                 <mesh filename="package://toggle_clamp/mesh/visual/clamp.stl"/>
             </geometry>
+            <xacro:grey_steel/>
         </visual>
         <collision>
             <geometry>

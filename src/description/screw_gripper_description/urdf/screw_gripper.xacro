@@ -1,10 +1,13 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
+    <xacro:include filename="$(find xacro_materials)/urdf/materials.xacro"/>
+
     <link name="screw_gripper">
         <visual>
             <geometry>
                 <mesh filename="package://screw_gripper_description/mesh/visual/screw_gripper.stl"/>
             </geometry>
+            <xacro:grey_steel/>
         </visual>
         <collision>
             <geometry>

@@ -4,11 +4,16 @@
 <!-- |    EDITING THIS FILE BY HAND IS NOT RECOMMENDED                                 | -->
 <!-- =================================================================================== -->
 <robot name="cogniman_robot">
+  <!-- ===FROM MOTOMAN=== -->
+  <!-- ===FROM MOTOMAN=== -->
   <link name="screw_gripper">
     <visual>
       <geometry>
         <mesh filename="package://screw_gripper_description/mesh/visual/screw_gripper.stl"/>
       </geometry>
+      <material name="">
+        <color rgba="0.5686274509803921 0.5686274509803921 0.5686274509803921 1.0"/>
+      </material>
     </visual>
     <collision>
       <geometry>
@@ -22,11 +27,16 @@
     <parent link="screw_gripper"/>
     <child link="tcp_screw_gripper"/>
   </joint>
+  <!-- ===FROM MOTOMAN=== -->
+  <!-- ===FROM MOTOMAN=== -->
   <link name="equerre_1">
     <visual>
       <geometry>
         <mesh filename="package://positionning_tool/mesh/visual/equerre.stl"/>
       </geometry>
+      <material name="">
+        <color rgba="0.7686274509803922 0.0 0.027450980392156862 1.0"/>
+      </material>
     </visual>
     <collision>
       <geometry>
@@ -34,11 +44,16 @@
       </geometry>
     </collision>
   </link>
+  <!-- ===FROM MOTOMAN=== -->
+  <!-- ===FROM MOTOMAN=== -->
   <link name="equerre_2">
     <visual>
       <geometry>
         <mesh filename="package://positionning_tool/mesh/visual/equerre.stl"/>
       </geometry>
+      <material name="">
+        <color rgba="0.7686274509803922 0.0 0.027450980392156862 1.0"/>
+      </material>
     </visual>
     <collision>
       <geometry>
@@ -46,11 +61,16 @@
       </geometry>
     </collision>
   </link>
+  <!-- ===FROM MOTOMAN=== -->
+  <!-- ===FROM MOTOMAN=== -->
   <link name="equerre_3">
     <visual>
       <geometry>
         <mesh filename="package://positionning_tool/mesh/visual/equerre.stl"/>
       </geometry>
+      <material name="">
+        <color rgba="0.7686274509803922 0.0 0.027450980392156862 1.0"/>
+      </material>
     </visual>
     <collision>
       <geometry>
@@ -58,11 +78,16 @@
       </geometry>
     </collision>
   </link>
+  <!-- ===FROM MOTOMAN=== -->
+  <!-- ===FROM MOTOMAN=== -->
   <link name="clamp_1">
     <visual>
       <geometry>
         <mesh filename="package://toggle_clamp/mesh/visual/clamp.stl"/>
       </geometry>
+      <material name="">
+        <color rgba="0.5686274509803921 0.5686274509803921 0.5686274509803921 1.0"/>
+      </material>
     </visual>
     <collision>
       <geometry>
@@ -70,11 +95,16 @@
       </geometry>
     </collision>
   </link>
+  <!-- ===FROM MOTOMAN=== -->
+  <!-- ===FROM MOTOMAN=== -->
   <link name="clamp_2">
     <visual>
       <geometry>
         <mesh filename="package://toggle_clamp/mesh/visual/clamp.stl"/>
       </geometry>
+      <material name="">
+        <color rgba="0.5686274509803921 0.5686274509803921 0.5686274509803921 1.0"/>
+      </material>
     </visual>
     <collision>
       <geometry>
@@ -82,11 +112,16 @@
       </geometry>
     </collision>
   </link>
+  <!-- ===FROM MOTOMAN=== -->
+  <!-- ===FROM MOTOMAN=== -->
   <link name="plateforme">
     <visual>
       <geometry>
         <mesh filename="package://plateforme_description/mesh/visual/plateform.stl"/>
       </geometry>
+      <material name="">
+        <color rgba="1.0 1.0 1.0 1.0"/>
+      </material>
     </visual>
     <collision>
       <geometry>
