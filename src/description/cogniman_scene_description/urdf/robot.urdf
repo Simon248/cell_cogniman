@@ -4,6 +4,60 @@
 <!-- |    EDITING THIS FILE BY HAND IS NOT RECOMMENDED                                 | -->
 <!-- =================================================================================== -->
 <robot name="cogniman_robot">
+  <link name="screw_gripper">
+    <visual>
+      <geometry>
+        <mesh filename="package://screw_gripper_description/mesh/visual/screw_gripper.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://screw_gripper_description/mesh/collision/screw_gripper_collision.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="tcp_screw_gripper"/>
+  <joint name="screw_gripper_to_tcp" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0.2"/>
+    <parent link="screw_gripper"/>
+    <child link="tcp_screw_gripper"/>
+  </joint>
+  <link name="equerre_1">
+    <visual>
+      <geometry>
+        <mesh filename="package://positionning_tool/mesh/visual/equerre.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://positionning_tool/mesh/collision/equerre_collision.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="equerre_2">
+    <visual>
+      <geometry>
+        <mesh filename="package://positionning_tool/mesh/visual/equerre.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://positionning_tool/mesh/collision/equerre_collision.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="equerre_3">
+    <visual>
+      <geometry>
+        <mesh filename="package://positionning_tool/mesh/visual/equerre.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://positionning_tool/mesh/collision/equerre_collision.stl"/>
+      </geometry>
+    </collision>
+  </link>
   <link name="clamp_1">
     <visual>
       <geometry>
@@ -205,24 +259,47 @@
     <child link="base"/>
   </joint>
   <link name="world"/>
-  <joint name="world_to_plateforme" type="fixed">
-    <origin rpy="0 0 0" xyz="1 0 0"/>
+  <joint name="world_to_robot" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0.24"/>
     <parent link="world"/>
-    <child link="plateforme"/>
-  </joint>
-  <joint name="plateforme_to_robot" type="fixed">
-    <origin rpy="0 0 0" xyz="1 0 0"/>
-    <parent link="plateforme"/>
     <child link="base_link"/>
   </joint>
-  <joint name="robot_to_clamp1" type="fixed">
+  <joint name="robot_to_plateforme" type="fixed">
+    <origin rpy="0 0 3.14" xyz="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="plateforme"/>
+  </joint>
+  <!-- ======  TOOL ====== -->
+  <joint name="tool0_to_screw_gripper" type="fixed">
     <origin rpy="0 0 0" xyz="0 0 0"/>
+    <parent link="tool0"/>
+    <child link="screw_gripper"/>
+  </joint>
+  <!-- ======  CLAMP ====== -->
+  <joint name="robot_to_clamp1" type="fixed">
+    <origin rpy="0 0 0" xyz="0.5 0.5 0"/>
     <parent link="base_link"/>
     <child link="clamp_1"/>
   </joint>
   <joint name="robot_to_clamp2" type="fixed">
-    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <origin rpy="0 0 0" xyz="0.2 0.2 0"/>
     <parent link="base_link"/>
     <child link="clamp_2"/>
+  </joint>
+  <!-- ======  EQUERRE ====== -->
+  <joint name="robot_to_equerre1" type="fixed">
+    <origin rpy="0 0 0" xyz="1 1 0"/>
+    <parent link="base_link"/>
+    <child link="equerre_1"/>
+  </joint>
+  <joint name="robot_to_equerre2" type="fixed">
+    <origin rpy="0 0 0" xyz="1 1.2 0"/>
+    <parent link="base_link"/>
+    <child link="equerre_2"/>
+  </joint>
+  <joint name="robot_to_equerre3" type="fixed">
+    <origin rpy="0 0 0" xyz="1 1.5 0"/>
+    <parent link="base_link"/>
+    <child link="equerre_3"/>
   </joint>
 </robot>

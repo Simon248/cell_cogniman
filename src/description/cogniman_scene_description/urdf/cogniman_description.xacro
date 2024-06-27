@@ -1,36 +1,75 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro" name="cogniman_robot">
 
+    <xacro:include filename="$(find screw_gripper_description)/urdf/screw_gripper.xacro"/>
+    
+    <xacro:include filename="$(find positionning_tool)/urdf/positionning_tool.xacro"/>
+    <xacro:equerre prefix="1"/>
+    <xacro:equerre prefix="2"/>
+    <xacro:equerre prefix="3"/>
+
     <xacro:include filename="$(find toggle_clamp)/urdf/toggle_clamp.xacro"/>
     <xacro:clamp prefix="1"/>
     <xacro:clamp prefix="2"/>
+
     <xacro:include filename="$(find plateforme_description)/urdf/plateforme.xacro"/>
     <xacro:include filename="$(find motoman_gp7_support)/urdf/gp7_macro.xacro" />
 	<xacro:motoman_gp7 prefix=""/>
 
     <link name="world"/>
     
-    <joint name="world_to_plateforme" type="fixed">
-        <origin xyz="1 0 0" rpy="0 0 0"/>
+    <joint name="world_to_robot" type="fixed">
+        <origin xyz="0 0 0.24" rpy="0 0 0"/>
         <parent link="world"/>
+        <child link="base_link"/>
+    </joint>
+
+    <joint name="robot_to_plateforme" type="fixed">
+        <origin xyz="0 0 0" rpy="0 0 3.14"/>
+        <parent link="base_link"/>
         <child link="plateforme"/>
     </joint>
 
-    <joint name="plateforme_to_robot" type="fixed">
-        <origin xyz="1 0 0" rpy="0 0 0"/>
-        <parent link="plateforme"/>
-        <child link="base_link"/>
+
+    <!-- ======  TOOL ====== -->
+    <joint name="tool0_to_screw_gripper" type="fixed">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <parent link="tool0"/>
+        <child link="screw_gripper"/>
     </joint>
     
+
+
+    <!-- ======  CLAMP ====== -->
     <joint name="robot_to_clamp1" type="fixed">
-        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <origin xyz="0.5 0.5 0" rpy="0 0 0"/>
         <parent link="base_link"/>
         <child link="clamp_1"/>
     </joint>
 
-       <joint name="robot_to_clamp2" type="fixed">
-        <origin xyz="0 0 0" rpy="0 0 0"/>
+    <joint name="robot_to_clamp2" type="fixed">
+        <origin xyz="0.2 0.2 0" rpy="0 0 0"/>
         <parent link="base_link"/>
         <child link="clamp_2"/>
     </joint>
-   
+
+    <!-- ======  EQUERRE ====== -->
+    <joint name="robot_to_equerre1" type="fixed">
+        <origin xyz="1 1 0" rpy="0 0 0"/>
+        <parent link="base_link"/>
+        <child link="equerre_1"/>
+    </joint>
+
+        <joint name="robot_to_equerre2" type="fixed">
+        <origin xyz="1 1.2 0" rpy="0 0 0"/>
+        <parent link="base_link"/>
+        <child link="equerre_2"/>
+    </joint>
+
+        <joint name="robot_to_equerre3" type="fixed">
+        <origin xyz="1 1.5 0" rpy="0 0 0"/>
+        <parent link="base_link"/>
+        <child link="equerre_3"/>
+    </joint>
+
+    
 </robot>

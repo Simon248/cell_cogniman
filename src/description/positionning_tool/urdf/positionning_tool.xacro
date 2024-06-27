@@ -1,0 +1,17 @@
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+    <xacro:macro name="equerre" params="prefix">
+
+    <link name="equerre_${prefix}">
+        <visual>
+            <geometry>
+                <mesh filename="package://positionning_tool/mesh/visual/equerre.stl"/>
+            </geometry>
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="package://positionning_tool/mesh/collision/equerre_collision.stl"/>
+            </geometry>
+        </collision>
+    </link>
+    </xacro:macro>
+</robot>

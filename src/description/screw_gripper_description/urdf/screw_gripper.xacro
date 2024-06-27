@@ -1,0 +1,24 @@
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+    <link name="screw_gripper">
+        <visual>
+            <geometry>
+                <mesh filename="package://screw_gripper_description/mesh/visual/screw_gripper.stl"/>
+            </geometry>
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="package://screw_gripper_description/mesh/collision/screw_gripper_collision.stl"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <link name="tcp_screw_gripper"/>
+
+    <joint name="screw_gripper_to_tcp" type="fixed">
+        <origin xyz="0 0 0.2" rpy="0 0 0"/>
+        <parent link="screw_gripper"/>
+        <child link="tcp_screw_gripper"/>
+    </joint>
+
+</robot>
