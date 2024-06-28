@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+    <!-- <xacro:macro name="profilo_with_support" params="prefix"> -->
+
+    <xacro:include filename="$(find xacro_materials)/urdf/materials.xacro"/>
+    
+    <link name="profilo">
+        <visual>
+            <geometry>
+                <mesh filename="package://profilo_description/mesh/visual/profilo_with_support.stl"/>
+            </geometry>
+            <xacro:grey_steel/>
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="package://profilo_description/mesh/collision/profilo_with_support_collision.stl"/>
+            </geometry>
+        </collision>
+    </link>
+    <!-- </xacro:macro> -->
+</robot>

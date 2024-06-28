@@ -1,3 +1,4 @@
+<?xml version="1.0" ?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro" name="cogniman_robot">
 
     <xacro:include filename="$(find screw_gripper_description)/urdf/screw_gripper.xacro"/>
@@ -11,6 +12,8 @@
     <xacro:clamp prefix="1"/>
     <xacro:clamp prefix="2"/>
 
+    <xacro:include filename="$(find profilo_description)/urdf/profilo_with_support.xacro"/>
+
     <xacro:include filename="$(find plateforme_description)/urdf/plateforme.xacro"/>
 
     <xacro:include filename="$(find motoman_gp7_support)/urdf/gp7_macro.xacro" />
@@ -21,17 +24,26 @@
 
 
     <link name="world"/>
-    
+
+    <!-- ======  ROBOT ====== -->
     <joint name="world_to_robot" type="fixed">
         <origin xyz="0 0 0.24" rpy="0 0 0"/>
         <parent link="world"/>
         <child link="base_link"/>
     </joint>
 
+    <!-- ======  PLATEFORME ====== -->
     <joint name="robot_to_plateforme" type="fixed">
         <origin xyz="0 0 0" rpy="0 0 3.14"/>
         <parent link="base_link"/>
         <child link="plateforme"/>
+    </joint>
+
+    <!-- ======  PROFILO ====== -->
+    <joint name="robot_to_profilo" type="fixed">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <parent link="base_link"/>
+        <child link="profilo"/>
     </joint>
 
 
