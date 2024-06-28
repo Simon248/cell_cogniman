@@ -1,18 +1,18 @@
 <?xml version="1.0" ?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
+
+
+<xacro:macro name="motoman_gp7_with_inertia" params="prefix">
+
     <!-- Inclure les fichiers Xacro existants -->
+
+    <!-- <xacro:include filename="$(find motoman_gp7_support)/urdf/gp7_macro.xacro"/>
+    <xacro:motoman_gp7 prefix="${prefix}"/> -->
+    
+    
     <xacro:include filename="$(find xacro_inertia)/urdf/inertia_table.xacro"/>
-    <xacro:include filename="$(find motoman_gp7_support)/urdf/gp7_macro.xacro"/>
 
-
-    <!-- Définir une macro pour motoman_gp7 avec inerties, avec un préfixe comme paramètre -->
-    <xacro:macro name="motoman_gp7_with_inertia" params="prefix">
-        
-        <!-- Utiliser la macro du robot motoman_gp7 avec le préfixe -->
-        <xacro:motoman_gp7 prefix="${prefix}"/>
-
-        <!-- Ajouter les inerties à chaque lien avec le préfixe -->
         <link name="${prefix}base_link">
             <inertial>
                 <xacro:cylinder_inertia m="8" r="0.095" h="0.15"/>
@@ -62,5 +62,5 @@
         </link>
 
     </xacro:macro>
-
+ 
 </robot>
