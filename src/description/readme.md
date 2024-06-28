@@ -13,7 +13,8 @@
 By using this way of doing, it guaranty that urdf is always generated in the same folder hence guaranty his uniqueness.
 
 ```
-source ros2  
+source ros2
+colcon build (xacro need to be updated/copied in install folder)    
 cd src/description/cogniman_scene_description  
 chmod +x ./build_urdf.sh  
 ./build_urdf  
