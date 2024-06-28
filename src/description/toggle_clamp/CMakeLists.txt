@@ -7,6 +7,9 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
+find_package(environment_hooks_package REQUIRED)
+
+
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
@@ -26,5 +29,7 @@ endif()
 install(DIRECTORY  mesh urdf
   DESTINATION share/${PROJECT_NAME}
 )
+
+ament_environment_hooks("${environment_hooks_package_DIR}/../../../share/environment_hooks_package/hooks/resource_paths.dsv.in")
 
 ament_package()
