@@ -4,6 +4,9 @@
 <!-- |    EDITING THIS FILE BY HAND IS NOT RECOMMENDED                                 | -->
 <!-- =================================================================================== -->
 <robot name="cogniman_robot">
+  <gazebo>
+    <plugin filename="ignition-gazebo-joint-state-publisher-system" name="ignition::gazebo::systems::JointStatePublisher"/>
+  </gazebo>
   <!-- ===FROM MOTOMAN=== -->
   <!-- ===FROM MOTOMAN=== -->
   <link name="screw_gripper">
@@ -357,7 +360,7 @@
   </joint>
   <!-- ======  PROFILO ====== -->
   <joint name="robot_to_profilo" type="fixed">
-    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <origin rpy="0 0 0" xyz="0.3 1 0"/>
     <parent link="base_link"/>
     <child link="profilo"/>
   </joint>
