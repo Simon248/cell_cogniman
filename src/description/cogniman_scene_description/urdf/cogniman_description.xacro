@@ -1,6 +1,8 @@
 <?xml version="1.0" ?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro" name="cogniman_robot">
 
+    <xacro:include filename="$(find cogniman_scene_description)/urdf/cogniman_gazebo.xacro"/>
+
     <xacro:include filename="$(find screw_gripper_description)/urdf/screw_gripper.xacro"/>
     
     <xacro:include filename="$(find positionning_tool)/urdf/positionning_tool.xacro"/>
@@ -41,7 +43,7 @@
 
     <!-- ======  PROFILO ====== -->
     <joint name="robot_to_profilo" type="fixed">
-        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <origin xyz="0.3 1 0" rpy="0 0 0"/>
         <parent link="base_link"/>
         <child link="profilo"/>
     </joint>
