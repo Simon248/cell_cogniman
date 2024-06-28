@@ -17,7 +17,8 @@ def evaluate_substitution(context, substitution):
 
 def generate_launch_description():
 #========================================== SIM_TIME ===========================================
-
+    use_sim_time = LaunchConfiguration('use_sim_time', default='True')
+    
     simu_arg = DeclareLaunchArgument(
         'simu',
         default_value='true',
@@ -47,13 +48,13 @@ def generate_launch_description():
     log_robot_description_path = LogInfo(msg=LaunchConfiguration('robot_description'))
 
      # Node to publish the state of the joints
-    JSP=Node(
-        package='joint_state_publisher_gui',
-        executable='joint_state_publisher_gui',
-        name='joint_state_publisher',
-        output='screen',
-        parameters=[{'use_gui': True}],
-    )
+    # JSP=Node(
+    #     package='joint_state_publisher_gui',
+    #     executable='joint_state_publisher_gui',
+    #     name='joint_state_publisher',
+    #     output='screen',
+    #     parameters=[{'use_gui': True},{"use_sim_time": use_sim_time}],
+    # )
 
     # Node to publish the state of the robot to tf
     RSP_freq=DeclareLaunchArgument("publish_frequency", default_value="15.0")
@@ -65,7 +66,8 @@ def generate_launch_description():
         output='screen',
         parameters=[{'use_sim_time': use_sim_time},
                     {"robot_description": robot_description_config.toxml()},
-                    {"publish_frequency": LaunchConfiguration("publish_frequency")},],
+                    {"publish_frequency": LaunchConfiguration("publish_frequency")},
+                    ],
     )
     
     # Node to launch RViz
@@ -75,6 +77,7 @@ def generate_launch_description():
         name='rviz2',
         output='screen',
         arguments=['-d', PathJoinSubstitution([FindPackageShare('bringup'), "config", "config_rviz1.rviz"])],
+        parameters=[{"use_sim_time": use_sim_time}],
     )
 
     # # Include Gazebo launch file
@@ -108,22 +111,27 @@ def generate_launch_description():
         description='Path to the configuration file'
         )
     
-    gz_bridge_node =  Node(
+    gz_bridge_node = Node(
         package='ros_gz_bridge',
         executable='parameter_bridge',
         name='ros_gz_bridge',
-        output='screen',
-        parameters=[LaunchConfiguration('config_file_gz_bridge')]
-        )
+        parameters=[{
+            'config_file': os.path.join(pkg_bringup_path, 'config', 'gz_bridge_config.yaml'),
+            'qos_overrides./tf_static.publisher.durability': 'transient_local',
+        }],
+        output='screen'
+    )
+
 
 
     return LaunchDescription([
         RSP_freq,
         robot_description_arg,
         log_robot_description_path,
-        JSP,
+        # JSP,
         RSP,
         rviz,
         gazebo,
         spawn_robot,
+        gz_bridge_node
     ])

@@ -9,7 +9,6 @@
   ros_topic_name: /joint_states
   ros_type_name: sensor_msgs/msg/JointState
   direction: GZ_TO_ROS
-
   # === ROS_to_GZ ===
 - gz_topic_name: /robot_description
   gz_type_name: gz.msgs.StringMsg
