@@ -23,4 +23,13 @@ le modele avec inertie de gp7 genere plusieurs base link  --> pas solutioné, le
  - []creer un plugin qui transfére le joint de la build plate au gripper. 
  - [] supprimer la pièce de la Build plate dans le modèle de colision et la faire appariatre dans le gripper pour le modèle de collision et 
 
- 5 11 28 31 34 37 40 43
+ 5 11 28 31 34 37 40 43  
+ 5 joint ground plane  
+ 11 base link  
+ 28 link1  
+ 31 link2  
+ 34 link3  
+ 37 link4  
+ 40 link5  
+ 43 link6  
+
