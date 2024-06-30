@@ -3,5 +3,24 @@
 
     <gazebo>
         <plugin filename="ignition-gazebo-joint-state-publisher-system" name="ignition::gazebo::systems::JointStatePublisher"/>
+        <physics name="10ms" type="ode">
+            <max_step_size>0.01</max_step_size>
+            <real_time_factor>1.0</real_time_factor>
+        </physics>
+        <plugin
+            filename="gz-sim-physics-system"
+            name="gz::sim::systems::Physics">
+        </plugin>
+
+
+        <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
+            <robotNamespace>/</robotNamespace>
+            <robotParam>/robot_description</robotParam>
+        </plugin>
+
+
+
     </gazebo>
+
+
 </robot>
