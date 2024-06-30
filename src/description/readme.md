@@ -1,7 +1,7 @@
 
 
 # COGNIMAN CELL DESCRIPTION
- ### **shema is wrong**
+
 ![shema drawio de la scene](description.svg)
 
 ## Graph architecture
