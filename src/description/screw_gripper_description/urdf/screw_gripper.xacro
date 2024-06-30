@@ -1,7 +1,8 @@
+<?xml version="1.0" ?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
     <xacro:include filename="$(find xacro_materials)/urdf/materials.xacro"/>
-
+    <xacro:include filename="$(find xacro_inertia)/urdf/inertia_table.xacro"/>
     <link name="screw_gripper">
         <visual>
             <geometry>
@@ -14,6 +15,9 @@
                 <mesh filename="package://screw_gripper_description/mesh/collision/screw_gripper_collision.stl"/>
             </geometry>
         </collision>
+        <inertial>
+          <xacro:box_inertia m="0.5" x="0.05" y="0.15" z="0.05"/>
+        </inertial>
     </link>
 
     <link name="tcp_screw_gripper"/>

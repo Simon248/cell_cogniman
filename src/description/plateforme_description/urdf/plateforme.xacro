@@ -1,6 +1,7 @@
+<?xml version="1.0" ?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
     <xacro:include filename="$(find xacro_materials)/urdf/materials.xacro"/>
-
+    <xacro:include filename="$(find xacro_inertia)/urdf/inertia_table.xacro"/>
     <link name="plateforme">
         <visual>
             <geometry>
@@ -13,5 +14,11 @@
                 <mesh filename="package://plateforme_description/mesh/collision/plateform_collision.stl"/>
             </geometry>
         </collision>
+        <inertial>
+          <xacro:box_inertia m="200" x="2" y="1" z="0.25"/>
+        </inertial>
+
+
+
     </link>
 </robot>

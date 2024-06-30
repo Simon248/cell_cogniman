@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
     <!-- <xacro:macro name="profilo_with_support" params="prefix"> -->
-
+    <xacro:include filename="$(find xacro_inertia)/urdf/inertia_table.xacro"/>
     <xacro:include filename="$(find xacro_materials)/urdf/materials.xacro"/>
     
     <link name="profilo">
@@ -16,6 +16,9 @@
                 <mesh filename="package://profilo_description/mesh/collision/profilo_with_support_collision.stl"/>
             </geometry>
         </collision>
+        <inertial>
+          <xacro:box_inertia m="4" x="0.05" y="0.05" z="0.05"/>
+        </inertial>
     </link>
     <!-- </xacro:macro> -->
 </robot>

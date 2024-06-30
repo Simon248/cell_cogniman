@@ -1,6 +1,7 @@
+<?xml version="1.0" ?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
     <xacro:macro name="equerre" params="prefix">
-
+    <xacro:include filename="$(find xacro_inertia)/urdf/inertia_table.xacro"/>
     <xacro:include filename="$(find xacro_materials)/urdf/materials.xacro"/>
     
     <link name="equerre_${prefix}">
@@ -15,6 +16,10 @@
                 <mesh filename="package://positionning_tool/mesh/collision/equerre_collision.stl"/>
             </geometry>
         </collision>
+        <inertial>
+          <xacro:box_inertia m="0.5" x="0.05" y="0.05" z="0.05"/>
+        </inertial>
+
     </link>
     </xacro:macro>
 </robot>
