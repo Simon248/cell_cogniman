@@ -6,6 +6,7 @@
                     iyy="${m*(3*r*r+h*h)/12}" iyz = "0"
                     izz="${m*r*r/2}" /> 
         <mass value="${m}" />
+        <origin xyz="0 0 0"/>
     </xacro:macro>
 
     <xacro:macro name="box_inertia" params="m x y z">
@@ -13,13 +14,16 @@
                     iyy="${m*(x*x+z*z)/12}" iyz = "0"
                     izz="${m*(x*x+y*y)/12}" /> 
             <mass value="${m}" />
+            <origin xyz="0 0 0"/>
     </xacro:macro>
 
     <xacro:macro name="sphere_inertia" params="m r">
-            <inertia  ixx="${2*m*r*r/5}" ixy = "0" ixz = "0"
-                    iyy="${2*m*r*r/5}" iyz = "0"
-                    izz="${2*m*r*r/5}" /> 
-            <mass value="${m/10}" />
+        <mass value="${m/10}" />
+        <inertia  ixx="${2*m*r*r/5}" ixy = "0" ixz = "0"
+                iyy="${2*m*r*r/5}" iyz = "0"
+                izz="${2*m*r*r/5}" /> 
+        <origin xyz="0 0 0"/>
+
     </xacro:macro>
 </robot>
 
