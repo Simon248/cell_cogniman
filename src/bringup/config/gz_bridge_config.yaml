@@ -4,7 +4,8 @@
   ros_topic_name: /clock
   ros_type_name: rosgraph_msgs/msg/Clock
   direction: GZ_TO_ROS
-- gz_topic_name: /world/empty/model/cogniman_robot/joint_state
+# - gz_topic_name: /world/empty/model/cogniman_robot/joint_state
+- gz_topic_name: /world/cogniman_demo/model/cogniman_robot/joint_state
   gz_type_name: gz.msgs.Model
   ros_topic_name: /joint_states
   ros_type_name: sensor_msgs/msg/JointState

@@ -2,7 +2,6 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro" name="cogniman_gazebo">
 
     <gazebo>
-        <plugin filename="ignition-gazebo-joint-state-publisher-system" name="ignition::gazebo::systems::JointStatePublisher"/>
         <physics name="10ms" type="ode">
             <max_step_size>0.01</max_step_size>
             <real_time_factor>1.0</real_time_factor>

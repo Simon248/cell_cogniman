@@ -2,8 +2,14 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro" name="cogniman_robot">
      <gazebo>
         <self_collide>1</self_collide>
-        <plugin filename="gz-sim-joint-state-publisher-system" name="gz::sim::systems::JointStatePublisher"/>
     </gazebo>
+     <gazebo>
+    <plugin filename="gz-sim-joint-state-publisher-system" name="gz::sim::systems::JointStatePublisher">
+      <!-- <robotNamespace>/tata/</robotNamespace>
+      <updateRate>50.0</updateRate> -->
+    </plugin>
+    </gazebo>
+
     <!-- <xacro:include filename="$(find cogniman_scene_description)/urdf/cogniman_gazebo.xacro"/> -->
 
     <xacro:include filename="$(find screw_gripper_description)/urdf/screw_gripper.xacro"/>
@@ -93,5 +99,5 @@
         <child link="equerre_3"/>
     </joint>
 
-    
+
 </robot>
