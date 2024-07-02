@@ -87,11 +87,13 @@ def generate_launch_description():
     # )
 
     # Gazebo Sim
+    robot_descr_path=get_package_share_directory('cogniman_scene_description')
+    scene_path = os.path.join(robot_descr_path, 'urdf', 'gazebo_world.sdf')
     pkg_ros_gz_sim = get_package_share_directory('ros_gz_sim')
     gazebo = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(pkg_ros_gz_sim, 'launch', 'gz_sim.launch.py')),
-        launch_arguments={'gz_args': '-r empty.sdf'}.items(),
+        launch_arguments={'gz_args': f'-v 4 -r {scene_path}'}.items(),
     )
 
     # Spawn robot in Gazebo
