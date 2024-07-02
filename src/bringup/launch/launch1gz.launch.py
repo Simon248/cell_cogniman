@@ -48,13 +48,13 @@ def generate_launch_description():
     log_robot_description_path = LogInfo(msg=LaunchConfiguration('robot_description'))
 
      # Node to publish the state of the joints
-    # JSP=Node(
-    #     package='joint_state_publisher_gui',
-    #     executable='joint_state_publisher_gui',
-    #     name='joint_state_publisher',
-    #     output='screen',
-    #     parameters=[{'use_gui': True},{"use_sim_time": use_sim_time}],
-    # )
+    JSP=Node(
+        package='joint_state_publisher_gui',
+        executable='joint_state_publisher_gui',
+        name='joint_state_publisher',
+        output='screen',
+        parameters=[{'use_gui': True},{"use_sim_time": use_sim_time}],
+    )
 
     # Node to publish the state of the robot to tf
     RSP_freq=DeclareLaunchArgument("publish_frequency", default_value="15.0")
@@ -130,7 +130,7 @@ def generate_launch_description():
         RSP_freq,
         robot_description_arg,
         log_robot_description_path,
-        # JSP,
+        JSP,
         RSP,
         rviz,
         gazebo,
