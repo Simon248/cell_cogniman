@@ -1,5 +1,8 @@
 <?xml version="1.0" ?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro" name="cogniman_robot">
+     <gazebo>
+        <self_collide>1</self_collide>
+    </gazebo>
 
     <xacro:include filename="$(find cogniman_scene_description)/urdf/cogniman_gazebo.xacro"/>
 
