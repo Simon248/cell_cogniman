@@ -130,7 +130,7 @@ def generate_launch_description():
         RSP_freq,
         robot_description_arg,
         log_robot_description_path,
-        JSP,
+        # JSP,
         RSP,
         rviz,
         gazebo,
