@@ -3,8 +3,7 @@
      <gazebo>
         <self_collide>1</self_collide>
     </gazebo>
-
-    <xacro:include filename="$(find cogniman_scene_description)/urdf/cogniman_gazebo.xacro"/>
+    <!-- <xacro:include filename="$(find cogniman_scene_description)/urdf/cogniman_gazebo.xacro"/> -->
 
     <xacro:include filename="$(find screw_gripper_description)/urdf/screw_gripper.xacro"/>
     
