@@ -3,17 +3,25 @@
 <world name="cogniman_demo">
 
 
-<physics name="10ms" type="dart">
-<max_step_size>0.1</max_step_size>
+<physics name="10ms" type="ode">
+<max_step_size>0.01</max_step_size>
 <real_time_factor>1.0</real_time_factor>
 </physics>
+<!-- Physics Plugin -->
 <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics"/>
+<!-- GUI visual Plugin -->
 <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands"/>
 <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster"/>
-<plugin filename="gz-sim-imu-system" name="gz::sim::systems::Imu"/>
-<plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors">
-<render_engine>ogre2</render_engine>
+<!-- <plugin filename="gz-sim-imu-system" name="gz::sim::systems::Imu"/> -->
+<!-- FT Plugin -->
+<plugin
+  filename="gz-sim-forcetorque-system"
+  name="gz::sim::systems::ForceTorque"> 
 </plugin>
+
+<!-- <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors">
+<render_engine>ogre2</render_engine>
+</plugin> -->
 
     <!--light-->
     <light type="directional" name="sun2">

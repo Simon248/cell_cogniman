@@ -1,25 +1,18 @@
 <?xml version="1.0" ?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro" name="cogniman_gazebo">
 
-    <gazebo>
-        <physics name="10ms" type="ode">
-            <max_step_size>0.01</max_step_size>
-            <real_time_factor>1.0</real_time_factor>
-        </physics>
-        <plugin
-            filename="gz-sim-physics-system"
-            name="gz::sim::systems::Physics">
-        </plugin>
-
-
-        <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
-            <robotNamespace>/</robotNamespace>
-            <robotParam>/robot_description</robotParam>
-        </plugin>
-
-
-
-    </gazebo>
+ <gazebo reference="joint_6_t-tool0">
+    <sensor name="force_torque_sensor" type="force_torque">
+      <always_on>true</always_on>
+      <update_rate>50</update_rate>
+      <visualize>true</visualize>
+      <topic>tool0/force_torque</topic>
+      <force_torque>
+        <frame>sensor</frame>
+        <measure_direction>parent_to_child</measure_direction>
+      </force_torque>
+    </sensor>
+  </gazebo>
 
 
 </robot>

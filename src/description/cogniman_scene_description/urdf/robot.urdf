@@ -5,7 +5,25 @@
 <!-- =================================================================================== -->
 <robot name="cogniman_robot">
   <gazebo>
-    <plugin filename="ignition-gazebo-joint-state-publisher-system" name="ignition::gazebo::systems::JointStatePublisher"/>
+    <self_collide>1</self_collide>
+  </gazebo>
+  <gazebo>
+    <plugin filename="gz-sim-joint-state-publisher-system" name="gz::sim::systems::JointStatePublisher">
+      <!-- <robotNamespace>/tata/</robotNamespace>
+      <updateRate>50.0</updateRate> -->
+    </plugin>
+  </gazebo>
+  <gazebo reference="joint_6_t-tool0">
+    <sensor name="force_torque_sensor" type="force_torque">
+      <always_on>true</always_on>
+      <update_rate>50</update_rate>
+      <visualize>true</visualize>
+      <topic>tool0/force_torque</topic>
+      <force_torque>
+        <frame>sensor</frame>
+        <measure_direction>parent_to_child</measure_direction>
+      </force_torque>
+    </sensor>
   </gazebo>
   <!-- ===FROM MOTOMAN=== -->
   <!-- ===FROM MOTOMAN=== -->
@@ -23,6 +41,11 @@
         <mesh filename="package://screw_gripper_description/mesh/collision/screw_gripper_collision.stl"/>
       </geometry>
     </collision>
+    <inertial>
+      <inertia ixx="0.0010416666666666667" ixy="0" ixz="0" iyy="0.00020833333333333337" iyz="0" izz="0.0010416666666666667"/>
+      <mass value="0.5"/>
+      <origin xyz="0 0 0"/>
+    </inertial>
   </link>
   <link name="tcp_screw_gripper"/>
   <joint name="screw_gripper_to_tcp" type="fixed">
@@ -46,6 +69,11 @@
         <mesh filename="package://positionning_tool/mesh/collision/equerre_collision.stl"/>
       </geometry>
     </collision>
+    <inertial>
+      <inertia ixx="0.00020833333333333337" ixy="0" ixz="0" iyy="0.00020833333333333337" iyz="0" izz="0.00020833333333333337"/>
+      <mass value="0.5"/>
+      <origin xyz="0 0 0"/>
+    </inertial>
   </link>
   <!-- ===FROM MOTOMAN=== -->
   <!-- ===FROM MOTOMAN=== -->
@@ -63,6 +91,11 @@
         <mesh filename="package://positionning_tool/mesh/collision/equerre_collision.stl"/>
       </geometry>
     </collision>
+    <inertial>
+      <inertia ixx="0.00020833333333333337" ixy="0" ixz="0" iyy="0.00020833333333333337" iyz="0" izz="0.00020833333333333337"/>
+      <mass value="0.5"/>
+      <origin xyz="0 0 0"/>
+    </inertial>
   </link>
   <!-- ===FROM MOTOMAN=== -->
   <!-- ===FROM MOTOMAN=== -->
@@ -80,6 +113,11 @@
         <mesh filename="package://positionning_tool/mesh/collision/equerre_collision.stl"/>
       </geometry>
     </collision>
+    <inertial>
+      <inertia ixx="0.00020833333333333337" ixy="0" ixz="0" iyy="0.00020833333333333337" iyz="0" izz="0.00020833333333333337"/>
+      <mass value="0.5"/>
+      <origin xyz="0 0 0"/>
+    </inertial>
   </link>
   <!-- ===FROM MOTOMAN=== -->
   <!-- ===FROM MOTOMAN=== -->
@@ -97,6 +135,11 @@
         <mesh filename="package://toggle_clamp/mesh/collision/clamp_collision.stl"/>
       </geometry>
     </collision>
+    <inertial>
+      <inertia ixx="0.00125" ixy="0" ixz="0" iyy="0.00025000000000000006" iyz="0" izz="0.00125"/>
+      <mass value="0.6"/>
+      <origin xyz="0 0 0"/>
+    </inertial>
   </link>
   <!-- ===FROM MOTOMAN=== -->
   <!-- ===FROM MOTOMAN=== -->
@@ -114,8 +157,12 @@
         <mesh filename="package://toggle_clamp/mesh/collision/clamp_collision.stl"/>
       </geometry>
     </collision>
+    <inertial>
+      <inertia ixx="0.00125" ixy="0" ixz="0" iyy="0.00025000000000000006" iyz="0" izz="0.00125"/>
+      <mass value="0.6"/>
+      <origin xyz="0 0 0"/>
+    </inertial>
   </link>
-  <!-- <xacro:macro name="profilo_with_support" params="prefix"> -->
   <!-- ===FROM MOTOMAN=== -->
   <!-- ===FROM MOTOMAN=== -->
   <link name="profilo">
@@ -132,6 +179,11 @@
         <mesh filename="package://profilo_description/mesh/collision/profilo_with_support_collision.stl"/>
       </geometry>
     </collision>
+    <inertial>
+      <inertia ixx="0.001666666666666667" ixy="0" ixz="0" iyy="0.001666666666666667" iyz="0" izz="0.001666666666666667"/>
+      <mass value="4"/>
+      <origin xyz="0 0 0"/>
+    </inertial>
   </link>
   <!-- </xacro:macro> -->
   <!-- ===FROM MOTOMAN=== -->
@@ -150,6 +202,11 @@
         <mesh filename="package://plateforme_description/mesh/collision/plateform_collision.stl"/>
       </geometry>
     </collision>
+    <inertial>
+      <inertia ixx="17.708333333333332" ixy="0" ixz="0" iyy="67.70833333333333" iyz="0" izz="83.33333333333333"/>
+      <mass value="200"/>
+      <origin xyz="0 0 0"/>
+    </inertial>
   </link>
   <!-- <xacro:include filename="$(find motoman_gp7_with_inertia)/urdf/gp7_with_inertia.xacro" /> -->
   <!-- link list -->
@@ -170,6 +227,7 @@
     <inertial>
       <inertia ixx="0.03305" ixy="0" ixz="0" iyy="0.03305" iyz="0" izz="0.0361"/>
       <mass value="8"/>
+      <origin xyz="0 0 0"/>
     </inertial>
   </link>
   <link name="link_1_s">
@@ -189,6 +247,7 @@
     <inertial>
       <inertia ixx="0.02478125" ixy="0" ixz="0" iyy="0.02478125" iyz="0" izz="0.0225625"/>
       <mass value="5"/>
+      <origin xyz="0 0 0"/>
     </inertial>
   </link>
   <link name="link_2_l">
@@ -208,6 +267,7 @@
     <inertial>
       <inertia ixx="0.07889583333333335" ixy="0" ixz="0" iyy="0.07889583333333335" iyz="0" izz="0.045125"/>
       <mass value="10"/>
+      <origin xyz="0 0 0"/>
     </inertial>
   </link>
   <link name="link_3_u">
@@ -227,6 +287,7 @@
     <inertial>
       <inertia ixx="0.012358333333333334" ixy="0" ixz="0" iyy="0.012358333333333334" iyz="0" izz="0.01805"/>
       <mass value="4"/>
+      <origin xyz="0 0 0"/>
     </inertial>
   </link>
   <link name="link_4_r">
@@ -246,6 +307,7 @@
     <inertial>
       <inertia ixx="0.031587500000000004" ixy="0" ixz="0" iyy="0.031587500000000004" iyz="0" izz="0.027075000000000002"/>
       <mass value="6"/>
+      <origin xyz="0 0 0"/>
     </inertial>
   </link>
   <link name="link_5_b">
@@ -265,6 +327,7 @@
     <inertial>
       <inertia ixx="0.009268750000000001" ixy="0" ixz="0" iyy="0.009268750000000001" iyz="0" izz="0.013537500000000001"/>
       <mass value="3"/>
+      <origin xyz="0 0 0"/>
     </inertial>
   </link>
   <link name="link_6_t">
@@ -284,6 +347,7 @@
     <inertial>
       <inertia ixx="0.0053765" ixy="0" ixz="0" iyy="0.0053765" iyz="0" izz="0.009025"/>
       <mass value="2"/>
+      <origin xyz="0 0 0"/>
     </inertial>
   </link>
   <link name="tool0"/>
