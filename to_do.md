@@ -24,3 +24,27 @@ https://vimeo.com/showcase/9954564/video/767127300
 
 
 
+- [] revoir le launch et le parametrage du serveur.
+         - Le serveur doit être autonome pour tourner dans un docker(est ce que c'es possible)
+         - C'esrt surtout URDF et SRDF qui doivent être géré.
+         - On peut imaginer que le serveur lors de son init attend ces paramètres
+               il doit avoir acces au mesh aussi...
+               Compliquer de le conteneuriser. il faut recupérer URDF, SRDF et Mesh.
+               Il faudra un service qui gère tout ca dans le robot description.
+
+                  parameters=[{
+                'robot_description': robot_description_file,
+                'robot_description_semantic':robot_description_semantic_file,
+                'discrete_plugin': LaunchConfiguration('discrete_plugin'),
+                'continuous_plugin': LaunchConfiguration('continuous_plugin'),
+                'monitor_namespace': LaunchConfiguration('monitor_namespace'),
+                'monitored_namespace': LaunchConfiguration('monitored_namespace'),
+                'publish_environment': LaunchConfiguration('publish_environment'),
+                'cache_size': LaunchConfiguration('cache_size'),
+                'cache_refresh_rate': LaunchConfiguration('cache_refresh_rate'),
+                'task_composer_config': LaunchConfiguration('task_composer_config')
+            }]
+
+
+         ==> pour l'instant faire simple: PAS DE DOCKER
+         ==> 
