@@ -1,6 +1,4 @@
-
-<?xml version="1.0" ?>
-<robot name="robot_description" version="1.0.0">
+<robot name="cogniman_robot" version="1.0.0">
     <group name="groupe">
         <chain base_link="base_link" tip_link="tcp"/>
     </group>
@@ -18,20 +16,20 @@
 
     <!-- <group_opw group="groupe" a1="0.155" a2="0.20000000000000001" b="0.45000000000000001" c1="0.45000000000000001" c2="0.61399999999999999" c3="0.64000000000000001" c4="0.10000000000000001" offsets="0.000000 0.000000 0.000000 0.000000 0.000000 0.000000" sign_corrections="1 1 1 1 1 1"/> -->
     <disable_collisions link1="link_4_r" link2="link_6_t" reason="Never"/>
-    <disable_collisions link1="controleur" link2="link_3_u" reason="Never"/>
+    <!-- <disable_collisions link1="controleur" link2="link_3_u" reason="Never"/> -->
     <disable_collisions link1="link_1_s" link2="link_3_u" reason="Never"/>
     <disable_collisions link1="link_2_l" link2="link_4_r" reason="Never"/>
     <disable_collisions link1="link_1_s" link2="link_2_l" reason="Adjacent"/>
     <disable_collisions link1="base_link" link2="link_1_s" reason="Adjacent"/>
-    <disable_collisions link1="link_2_l" link2="table" reason="Never"/>
+    <!-- <disable_collisions link1="link_2_l" link2="table" reason="Never"/> -->
     <disable_collisions link1="link_3_u" link2="link_6_t" reason="Never"/>
     <disable_collisions link1="link_2_l" link2="link_3_u" reason="Adjacent"/>
     <disable_collisions link1="link_4_r" link2="link_5_b" reason="Adjacent"/>
     <disable_collisions link1="link_5_b" link2="link_6_t" reason="Adjacent"/>
     <disable_collisions link1="link_3_u" link2="link_5_b" reason="Never"/>
     <disable_collisions link1="link_2_l" link2="link_5_b" reason="Never"/>
-    <disable_collisions link1="link_1_s" link2="robot_base" reason="Never"/>
-    <disable_collisions link1="base_link" link2="robot_base" reason="Never"/>
+    <!-- <disable_collisions link1="link_1_s" link2="robot_base" reason="Never"/> -->
+    <!-- <disable_collisions link1="base_link" link2="robot_base" reason="Never"/> -->
     <disable_collisions link1="link_2_l" link2="link_6_t" reason="Never"/>
     <disable_collisions link1="link_3_u" link2="link_4_r" reason="Never"/>
 
