@@ -36,6 +36,15 @@
 
     <link name="world"/>
 
+    <link name="tcp"/>
+    <!-- ======  TCP ====== -->
+    <joint name="tool0_to_tcp" type="fixed">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <parent link="tool0"/>
+        <child link="tcp"/>
+    </joint>
+
+
     <!-- ======  ROBOT ====== -->
     <joint name="world_to_robot" type="fixed">
         <origin xyz="0 0 0.24" rpy="0 0 0"/>
