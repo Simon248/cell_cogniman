@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(plateforme_description)
+project(environment_hooks_package)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -23,10 +23,9 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
-install(DIRECTORY  mesh urdf
+install(
+  DIRECTORY hooks
   DESTINATION share/${PROJECT_NAME}
 )
-find_package(environment_hooks_package REQUIRED)
-ament_environment_hooks("${environment_hooks_package_DIR}/../../../share/environment_hooks_package/hooks/resource_paths.dsv.in")
-
+ament_environment_hooks("hooks/resource_paths.dsv.in")
 ament_package()

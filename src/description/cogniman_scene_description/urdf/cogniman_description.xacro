@@ -1,4 +1,16 @@
+<?xml version="1.0" ?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro" name="cogniman_robot">
+     <gazebo>
+        <self_collide>1</self_collide>
+    </gazebo>
+     <gazebo>
+    <plugin filename="gz-sim-joint-state-publisher-system" name="gz::sim::systems::JointStatePublisher">
+      <!-- <robotNamespace>/tata/</robotNamespace>
+      <updateRate>50.0</updateRate> -->
+    </plugin>
+    </gazebo>
+
+    <xacro:include filename="$(find cogniman_scene_description)/urdf/cogniman_gazebo.xacro"/>
 
     <xacro:include filename="$(find screw_gripper_description)/urdf/screw_gripper.xacro"/>
     
@@ -11,22 +23,47 @@
     <xacro:clamp prefix="1"/>
     <xacro:clamp prefix="2"/>
 
+    <xacro:include filename="$(find profilo_description)/urdf/profilo_with_support.xacro"/>
+
     <xacro:include filename="$(find plateforme_description)/urdf/plateforme.xacro"/>
+
     <xacro:include filename="$(find motoman_gp7_support)/urdf/gp7_macro.xacro" />
+    <!-- <xacro:include filename="$(find motoman_gp7_with_inertia)/urdf/gp7_with_inertia.xacro" /> -->
+
 	<xacro:motoman_gp7 prefix=""/>
+    <!-- <xacro:motoman_gp7_with_inertia prefix=""/> -->
+
 
     <link name="world"/>
-    
+
+    <link name="tcp"/>
+    <!-- ======  TCP ====== -->
+    <joint name="tool0_to_tcp" type="fixed">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <parent link="tool0"/>
+        <child link="tcp"/>
+    </joint>
+
+
+    <!-- ======  ROBOT ====== -->
     <joint name="world_to_robot" type="fixed">
         <origin xyz="0 0 0.24" rpy="0 0 0"/>
         <parent link="world"/>
         <child link="base_link"/>
     </joint>
 
+    <!-- ======  PLATEFORME ====== -->
     <joint name="robot_to_plateforme" type="fixed">
         <origin xyz="0 0 0" rpy="0 0 3.14"/>
         <parent link="base_link"/>
         <child link="plateforme"/>
+    </joint>
+
+    <!-- ======  PROFILO ====== -->
+    <joint name="robot_to_profilo" type="fixed">
+        <origin xyz="0.3 1 0" rpy="0 0 0"/>
+        <parent link="base_link"/>
+        <child link="profilo"/>
     </joint>
 
 
@@ -71,5 +108,5 @@
         <child link="equerre_3"/>
     </joint>
 
-    
+
 </robot>

@@ -2,7 +2,7 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 <xacro:macro name="motoman_gp7" params="prefix">
     <xacro:include filename="$(find motoman_resources)/urdf/common_materials.xacro"/>
-
+    <xacro:include filename="$(find xacro_inertia)/urdf/inertia_table.xacro"/>
     <!-- link list -->
     <link name="${prefix}base_link">
         <visual>
@@ -16,7 +16,11 @@
                 <mesh filename="package://motoman_gp7_support/meshes/collision/gp7_base_link.stl"/>
             </geometry>
         </collision>
+        <inertial>
+            <xacro:cylinder_inertia m="8" r="0.095" h="0.15"/>
+        </inertial>
     </link>
+
     <link name="${prefix}link_1_s">
         <visual>
             <geometry>
@@ -29,6 +33,9 @@
                 <mesh filename="package://motoman_gp7_support/meshes/collision/gp7_link_1_s.stl"/>
             </geometry>
         </collision>
+        <inertial>
+            <xacro:cylinder_inertia m="5" r="0.095" h="0.18"/>
+        </inertial>
     </link>
     <link name="${prefix}link_2_l">
         <visual>
@@ -42,6 +49,11 @@
                 <mesh filename="package://motoman_gp7_support/meshes/collision/gp7_link_2_l.stl"/>
             </geometry>
         </collision>
+        <inertial>
+            <xacro:cylinder_inertia m="10" r="0.095" h="0.26"/>
+        </inertial>
+
+
     </link>
     <link name="${prefix}link_3_u">
         <visual>
@@ -55,6 +67,10 @@
                 <mesh filename="package://motoman_gp7_support/meshes/collision/gp7_link_3_u.stl"/>
             </geometry>
         </collision>
+        <inertial>
+            <xacro:cylinder_inertia m="4" r="0.095" h="0.1"/>
+        </inertial>
+
     </link>
     <link name="${prefix}link_4_r">
         <visual>
@@ -68,6 +84,10 @@
                 <mesh filename="package://motoman_gp7_support/meshes/collision/gp7_link_4_r.stl"/>
             </geometry>
         </collision>
+        <inertial>
+            <xacro:cylinder_inertia m="6" r="0.095" h="0.19"/>
+        </inertial>
+
     </link>
     <link name="${prefix}link_5_b">
         <visual>
@@ -81,6 +101,10 @@
                 <mesh filename="package://motoman_gp7_support/meshes/collision/gp7_link_5_b.stl"/>
             </geometry>
         </collision>
+        <inertial>
+            <xacro:cylinder_inertia m="3" r="0.095" h="0.1"/>
+        </inertial>
+
     </link>
     <link name="${prefix}link_6_t">
         <visual>
@@ -94,6 +118,10 @@
                 <mesh filename="package://motoman_gp7_support/meshes/collision/gp7_link_6_t.stl"/>
             </geometry>
         </collision>
+        <inertial>
+            <xacro:cylinder_inertia m="2" r="0.095" h="0.072"/>
+        </inertial>
+
     </link>
     <link name="${prefix}tool0"/>
     <!-- end of link list -->

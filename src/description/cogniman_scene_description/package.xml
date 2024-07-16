@@ -12,6 +12,13 @@
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
 
+  <depend> toggle_clamp </depend>
+  <depend> plateforme_description </depend>
+  <depend> screw_gripper_description </depend>
+  <depend> profilo_description </depend>
+  <depend> positionning_tool </depend>
+  <depend> motoman_gp7_support </depend>
+
   <export>
     <build_type>ament_cmake</build_type>
   </export>

@@ -1,0 +1,19 @@
+# === GZ_to_ROS ===
+- gz_topic_name: /clock
+  gz_type_name: gz.msgs.Clock
+  ros_topic_name: /clock
+  ros_type_name: rosgraph_msgs/msg/Clock
+  direction: GZ_TO_ROS
+# - gz_topic_name: /world/empty/model/cogniman_robot/joint_state
+- gz_topic_name: /world/cogniman_demo/model/cogniman_robot/joint_state
+  gz_type_name: gz.msgs.Model
+  ros_topic_name: /joint_states
+  ros_type_name: sensor_msgs/msg/JointState
+  direction: GZ_TO_ROS
+  # === ROS_to_GZ ===
+- gz_topic_name: /robot_description
+  gz_type_name: gz.msgs.StringMsg
+  ros_topic_name: /robot_description
+  ros_type_name: std_msgs/msg/String
+  direction: ROS_TO_GZ
+
