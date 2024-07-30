@@ -9,8 +9,10 @@
 
 
     <!--Groups kinematic plugins -->
-    <kinematics_plugin_config filename="$(arg path_to_kinematic_plugins)"/>
+    <!-- <kinematics_plugin_config filename="$(arg path_to_kinematic_plugins)"/> -->
+    <kinematics_plugin_config filename="package://cogniman_scene_description/config/IK_plugin.yaml"/>
 
+    <!-- <kinematics_plugin_config filename="package://tesseract_support/urdf/abb_irb2400_plugins.yaml"/> -->
     <!--Contact Managers plugins -->
     <contact_managers_plugin_config filename="package://tesseract_support/urdf/contact_manager_plugins.yaml"/>
 
