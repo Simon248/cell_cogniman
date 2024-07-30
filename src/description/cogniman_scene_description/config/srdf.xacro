@@ -1,6 +1,6 @@
 <robot name="cogniman_robot" version="1.0.0">
     <group name="groupe">
-        <chain base_link="base_link" tip_link="tcp"/>
+        <chain base_link="base_link" tip_link="tool0"/>
     </group>
 
     <group_tcps group="groupe">
@@ -60,5 +60,6 @@
     <!-- <virtual_joint name="FixedBase" type="fixed" parent_frame="world" child_link="base_link" /> -->
 
 
-
 </robot>
+
+
