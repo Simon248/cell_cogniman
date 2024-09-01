@@ -22,44 +22,22 @@
     <disable_collisions link1="base_link" link2="equerre_1" reason="Adjacent"/>
     <disable_collisions link1="base_link" link2="equerre_2" reason="Adjacent"/>
     <disable_collisions link1="base_link" link2="equerre_3" reason="Adjacent"/>
-
     <disable_collisions link1="base_link" link2="link_1_s" reason="Adjacent"/>
     <disable_collisions link1="base_link" link2="plateforme" reason="Adjacent"/>
     <disable_collisions link1="base_link" link2="profilo" reason="Adjacent"/>
-
-
     <disable_collisions link1="link_1_s" link2="link_2_l" reason="Adjacent"/>
     <disable_collisions link1="link_2_l" link2="link_3_u" reason="Adjacent"/>
     <disable_collisions link1="link_3_u" link2="link_4_r" reason="Adjacent"/>
     <disable_collisions link1="link_4_r" link2="link_5_b" reason="Adjacent"/>
     <disable_collisions link1="link_5_b" link2="link_6_t" reason="Adjacent"/>
     <disable_collisions link1="link_6_t" link2="screw_gripper" reason="Adjacent"/>
-
     <!-- Always in default -->
     <disable_collisions link1="clamp_1" link2="plateforme" reason="Adjacent"/>
     <disable_collisions link1="clamp_2" link2="plateforme" reason="Adjacent"/>
     <disable_collisions link1="equerre_1" link2="plateforme" reason="Adjacent"/>
     <disable_collisions link1="equerre_2" link2="plateforme" reason="Adjacent"/>
     <disable_collisions link1="equerre_3" link2="plateforme" reason="Adjacent"/>
-    <!-- <disable_collisions link1="controleur" link2="link_3_u" reason="Never"/> -->
-    <!-- <disable_collisions link1="link_1_s" link2="link_3_u" reason="Never"/>
-    <disable_collisions link1="link_2_l" link2="link_4_r" reason="Never"/> -->
-
-    <!-- <disable_collisions link1="link_2_l" link2="table" reason="Never"/> -->
-    <!-- <disable_collisions link1="link_3_u" link2="link_6_t" reason="Never"/>
-
-    <disable_collisions link1="link_3_u" link2="link_5_b" reason="Never"/>
-    <disable_collisions link1="link_2_l" link2="link_5_b" reason="Never"/> -->
-    <!-- <disable_collisions link1="link_1_s" link2="robot_base" reason="Never"/> -->
-    <!-- <disable_collisions link1="base_link" link2="robot_base" reason="Never"/> -->
-    <!-- <disable_collisions link1="link_2_l" link2="link_6_t" reason="Never"/>
-    <disable_collisions link1="link_3_u" link2="link_4_r" reason="Never"/> -->
-
-    
-    <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
-    <!-- <virtual_joint name="FixedBase" type="fixed" parent_frame="world" child_link="base_link" /> -->
-
-
+    <disable_collisions link1="plateforme" link2="profilo" reason="Adjacent"/>
 </robot>
 
 
