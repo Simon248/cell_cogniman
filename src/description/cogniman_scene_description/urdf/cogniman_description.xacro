@@ -1,19 +1,16 @@
 <?xml version="1.0" ?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro" name="cogniman_robot">
+    <!-- GAZEBO -->
      <gazebo>
         <self_collide>1</self_collide>
+        <plugin filename="gz-sim-joint-state-publisher-system" name="gz::sim::systems::JointStatePublisher"/>
     </gazebo>
-     <gazebo>
-    <plugin filename="gz-sim-joint-state-publisher-system" name="gz::sim::systems::JointStatePublisher">
-      <!-- <robotNamespace>/tata/</robotNamespace>
-      <updateRate>50.0</updateRate> -->
-    </plugin>
-    </gazebo>
+
 
     <xacro:include filename="$(find cogniman_scene_description)/urdf/cogniman_gazebo.xacro"/>
 
     <xacro:include filename="$(find screw_gripper_description)/urdf/screw_gripper.xacro"/>
-    
+
     <xacro:include filename="$(find positionning_tool)/urdf/positionning_tool.xacro"/>
     <xacro:equerre prefix="1"/>
     <xacro:equerre prefix="2"/>
@@ -37,6 +34,7 @@
     <link name="world"/>
 
     <link name="tcp"/>
+    
     <!-- ======  TCP ====== -->
     <joint name="tool0_to_tcp" type="fixed">
         <origin xyz="0 0 0" rpy="0 0 0"/>
