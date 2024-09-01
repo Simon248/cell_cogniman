@@ -47,6 +47,19 @@ def generate_launch_description():
 
     log_robot_description_path = LogInfo(msg=LaunchConfiguration('robot_description'))
 
+#========================================== ROBOT_DESCRIPTION_SEMANTIC ===========================================
+    srdf_path = PathJoinSubstitution(
+        [FindPackageShare(robot_model_config_pkg), "config", "robot.srdf"])
+
+    srdf_config = xacro.process_file(evaluate_substitution(context, srdf_path))
+    robot_description_semantic = {"robot_description_semantic": srdf_config.toxml()}
+
+    robot_description_semantic_arg = DeclareLaunchArgument(
+        'robot_description_semantic',
+        default_value=robot_description_semantic,
+        description='Absolute path to robot srdf file'
+    )
+
      # Node to publish the state of the joints
     JSP=Node(
         package='joint_state_publisher_gui',
@@ -77,7 +90,7 @@ def generate_launch_description():
         name='rviz2',
         output='screen',
         arguments=['-d', PathJoinSubstitution([FindPackageShare('bringup'), "config", "config_rviz1.rviz"])],
-        parameters=[{"use_sim_time": use_sim_time}],
+        parameters=[{"use_sim_time": use_sim_time},{"robot_description": robot_description_config.toxml()},{"robot_description_semantic": srdf_config.toxml()},],
     )
 
     # # Include Gazebo launch file
